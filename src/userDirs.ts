@@ -51,7 +51,7 @@ export function load(): UserDirs {
       dirs.desktopDir = `${dirs.homeDir}/Desktop`;
       dirs.documentDir = `${dirs.homeDir}/Documents`;
       dirs.downloadDir = `${dirs.homeDir}/Downloads`;
-          dirs.fontDir = `${dirs.homeDir}/Library/Fonts`;
+      dirs.fontDir = `${dirs.homeDir}/Library/Fonts`;
       dirs.pictureDir = `${dirs.homeDir}/Pictures`;
       dirs.publicDir = `${dirs.homeDir}/Public`;
       dirs.videoDir = `${dirs.videoDir}/Movies`;
