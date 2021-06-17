@@ -7,7 +7,14 @@ export interface BaseDirs {
   preferenceDir: string;
 }
 
+/**
+ * @deprecated The function `load` was replaced by `setup`
+ */
 export function load(): BaseDirs {
+  return setup();
+}
+
+export function setup(): BaseDirs {
   const dirs: BaseDirs = {
     homeDir: "",
     cacheDir: "",
@@ -39,10 +46,10 @@ export function load(): BaseDirs {
     case "windows":
       dirs.homeDir = Deno.env.get("USERPROFILE") || "virtualHome";
       dirs.cacheDir = `${dirs.homeDir}\\AppData\\Local`;
-      dirs.configDir = `${dirs.configDir}\\AppData\\Roaming`;
-      dirs.dataDir = `${dirs.configDir}\\AppData\\Roaming`;
-      dirs.dataLocalDir = `${dirs.configDir}\\AppData\\Local`;
-      dirs.preferenceDir = `${dirs.configDir}\\AppData\\Roaming`;
+      dirs.configDir = `${dirs.homeDir}\\AppData\\Roaming`;
+      dirs.dataDir = `${dirs.homeDir}\\AppData\\Roaming`;
+      dirs.dataLocalDir = `${dirs.homeDir}\\AppData\\Local`;
+      dirs.preferenceDir = `${dirs.homeDir}\\AppData\\Roaming`;
       break;
   }
 

@@ -8,12 +8,31 @@ export interface ProjectDirs {
   preferenceDir: string;
 }
 
+/**
+ * @deprecated The function `load` was replaced by `setup`
+ * @param qualifier
+ * @param organization
+ * @param application
+ */
 export function load(
   qualifier: string,
   organization: string,
   application: string,
+) {
+  setup(qualifier, organization, application);
+}
+
+/**
+ * @param qualifier
+ * @param organization
+ * @param application
+ */
+export function setup(
+  qualifier: string,
+  organization: string,
+  application: string,
 ): ProjectDirs {
-  const base = baseDirs.load();
+  const base = baseDirs.setup();
   const dirs: ProjectDirs = {
     cacheDir: "",
     configDir: "",
@@ -45,12 +64,13 @@ export function load(
       break;
 
     case "windows":
-      dirs.cacheDir = `${base.cacheDir}/${organization}/${application}`;
-      dirs.configDir = `${base.configDir}/${organization}/${application}`;
-      dirs.dataDir = `${base.dataDir}/${organization}/${application}`;
-      dirs.dataLocalDir = `${base.dataLocalDir}/${organization}/${application}`;
+      dirs.cacheDir = `${base.cacheDir}\\${organization}\\${application}`;
+      dirs.configDir = `${base.configDir}\\${organization}\\${application}`;
+      dirs.dataDir = `${base.dataDir}\\${organization}\\${application}`;
+      dirs.dataLocalDir =
+        `${base.dataLocalDir}\\${organization}\\${application}`;
       dirs.preferenceDir =
-        `${base.preferenceDir}/${organization}/${application}`;
+        `${base.preferenceDir}\\${organization}\\${application}`;
       break;
   }
 

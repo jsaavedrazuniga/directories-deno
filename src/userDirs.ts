@@ -12,8 +12,15 @@ export interface UserDirs {
   videoDir: string;
 }
 
-export function load(): UserDirs {
-  const base = baseDirs.load();
+/**
+ * @deprecated The function `load` was replaced by `setup`
+ */
+export function load(): userDirs {
+  return setup();
+}
+
+export function setup(): UserDirs {
+  const base = baseDirs.setup();
   const dirs = {
     homeDir: base.homeDir,
     musicDir: "",
