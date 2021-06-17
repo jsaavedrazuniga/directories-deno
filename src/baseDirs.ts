@@ -8,7 +8,7 @@ export interface BaseDirs {
 }
 
 export function load(): BaseDirs {
-  const bd: BaseDirs = {
+  const dirs: BaseDirs = {
     homeDir: "",
     cacheDir: "",
     configDir: "",
@@ -19,32 +19,32 @@ export function load(): BaseDirs {
 
   switch (Deno.build.os) {
     case "linux":
-      bd.homeDir = Deno.env.get("HOME") || "virtualHome";
-      bd.cacheDir = `${bd.homeDir}/.cache`;
-      bd.configDir = `${bd.homeDir}/.config`;
-      bd.dataDir = `${bd.homeDir}/.local/share`;
-      bd.dataLocalDir = `${bd.homeDir}/.local/share`;
-      bd.preferenceDir = `${bd.homeDir}/.config`;
+      dirs.homeDir = Deno.env.get("HOME") || "virtualHome";
+      dirs.cacheDir = `${dirs.homeDir}/.cache`;
+      dirs.configDir = `${dirs.homeDir}/.config`;
+      dirs.dataDir = `${dirs.homeDir}/.local/share`;
+      dirs.dataLocalDir = `${dirs.homeDir}/.local/share`;
+      dirs.preferenceDir = `${dirs.homeDir}/.config`;
       break;
 
     case "darwin":
-      bd.homeDir = Deno.env.get("HOME") || "virtualHome";
-      bd.cacheDir = `${bd.homeDir}/Library/Caches`;
-      bd.configDir = `${bd.homeDir}/Library/Application Support`;
-      bd.dataDir = `${bd.homeDir}/Library/Application Support`;
-      bd.dataLocalDir = `${bd.homeDir}/Library/Application Support`;
-      bd.preferenceDir = `${bd.homeDir}/Library/Preferences`;
+      dirs.homeDir = Deno.env.get("HOME") || "virtualHome";
+      dirs.cacheDir = `${dirs.homeDir}/Library/Caches`;
+      dirs.configDir = `${dirs.homeDir}/Library/Application Support`;
+      dirs.dataDir = `${dirs.homeDir}/Library/Application Support`;
+      dirs.dataLocalDir = `${dirs.homeDir}/Library/Application Support`;
+      dirs.preferenceDir = `${dirs.homeDir}/Library/Preferences`;
       break;
 
     case "windows":
-      bd.homeDir = Deno.env.get("USERPROFILE") || "virtualHome";
-      bd.cacheDir = `${bd.homeDir}\\AppData\\Local`;
-      bd.configDir = `${bd.configDir}\\AppData\\Roaming`;
-      bd.dataDir = `${bd.configDir}\\AppData\\Roaming`;
-      bd.dataLocalDir = `${bd.configDir}\\AppData\\Local`;
-      bd.preferenceDir = `${bd.configDir}\\AppData\\Roaming`;
+      dirs.homeDir = Deno.env.get("USERPROFILE") || "virtualHome";
+      dirs.cacheDir = `${dirs.homeDir}\\AppData\\Local`;
+      dirs.configDir = `${dirs.configDir}\\AppData\\Roaming`;
+      dirs.dataDir = `${dirs.configDir}\\AppData\\Roaming`;
+      dirs.dataLocalDir = `${dirs.configDir}\\AppData\\Local`;
+      dirs.preferenceDir = `${dirs.configDir}\\AppData\\Roaming`;
       break;
   }
 
-  return bd;
+  return dirs;
 }
