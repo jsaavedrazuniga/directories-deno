@@ -15,7 +15,7 @@ export interface UserDirs {
 /**
  * @deprecated The function `load` was replaced by `setup`
  */
-export function load(): userDirs {
+export function load(): UserDirs {
   const result = setup();
   return result;
 }
