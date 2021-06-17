@@ -19,7 +19,8 @@ export function load(
   organization: string,
   application: string,
 ) {
-  setup(qualifier, organization, application);
+  const result = setup(qualifier, organization, application);
+  return result;
 }
 
 /**
