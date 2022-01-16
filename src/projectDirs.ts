@@ -9,21 +9,6 @@ export interface ProjectDirs {
 }
 
 /**
- * @deprecated The function `load` was replaced by `setup`
- * @param qualifier
- * @param organization
- * @param application
- */
-export function load(
-  qualifier: string,
-  organization: string,
-  application: string,
-) {
-  const result = setup(qualifier, organization, application);
-  return result;
-}
-
-/**
  * @param qualifier
  * @param organization
  * @param application

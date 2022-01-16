@@ -7,14 +7,6 @@ export interface BaseDirs {
   preferenceDir: string;
 }
 
-/**
- * @deprecated The function `load` was replaced by `setup`
- */
-export function load(): BaseDirs {
-  const result = setup();
-  return result;
-}
-
 export function setup(): BaseDirs {
   const dirs: BaseDirs = {
     homeDir: "",
